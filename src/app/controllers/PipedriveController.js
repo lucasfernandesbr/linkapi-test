@@ -1,6 +1,6 @@
 import DealSchema from '../schemas/Deal';
 
-import pipedriveApi from '../../services/api';
+import { pipedriveApi } from '../../services/api';
 
 import BlingController from './BlingController';
 

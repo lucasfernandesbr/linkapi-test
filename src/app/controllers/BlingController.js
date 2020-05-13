@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { blingApi } from '../../services/api';
 
 import DealSchema from '../schemas/Deal';
 
@@ -34,9 +34,9 @@ class BlingController {
         },
       };
 
-      await axios
+      await blingApi
         .post(
-          `https://bling.com.br/Api/v2/pedido/?apikey=${process.env.BLING_API_KEY}&xml=${xmlContent}`,
+          `/pedido/?apikey=${process.env.BLING_API_KEY}&xml=${xmlContent}`,
           config
         )
         .then(console.log(`Integração para ${deal.person_id.name} realizada!`))
