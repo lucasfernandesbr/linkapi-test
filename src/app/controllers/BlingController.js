@@ -28,16 +28,13 @@ class BlingController {
         </pedido>
       `;
 
-      const config = {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      };
-
       await blingApi
         .post(
-          `/pedido/?apikey=${process.env.BLING_API_KEY}&xml=${xmlContent}`,
-          config
+          `/pedido/?apikey=${process.env.BLING_API_KEY}&xml=${xmlContent}`, {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          }
         )
         .then(console.log(`Integração para ${deal.person_id.name} realizada!`))
         .catch((error) => console.log(error));
